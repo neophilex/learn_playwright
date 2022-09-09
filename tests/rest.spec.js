@@ -2,7 +2,11 @@
 
 const { test, expect } = require('@playwright/test');
 
-test.use({ baseURL: 'https://jsonplaceholder.typicode.com' });
+test.use({ baseURL: 'https://jsonplaceholder.typicode.com',
+
+
+
+});
 
 
 
@@ -29,4 +33,5 @@ test('rest endpoint', async ({ request }) => {
             expect(validation_data[key]).toBe(response_data[key]);
         }
     });
+
 });

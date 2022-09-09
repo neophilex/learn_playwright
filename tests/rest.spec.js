@@ -2,16 +2,12 @@
 
 const { test, expect } = require('@playwright/test');
 
-test.use({ baseURL: 'https://jsonplaceholder.typicode.com',
-
-
-
-});
+test.use({baseURL: 'https://jsonplaceholder.typicode.com',});
 
 
 
 
-test('rest endpoint', async ({ request }) => {
+test('rest endpoint @learn', async ({ request }) => {
 
     //read the json file and parse it into variable my_data
     const fs = require('fs');
@@ -33,5 +29,18 @@ test('rest endpoint', async ({ request }) => {
             expect(validation_data[key]).toBe(response_data[key]);
         }
     });
+
+    console.log("I am with the tag @learn");
+
+});
+
+test('test @donotlearn', async ({ request }) => {
+    //make a request to the endpoint
+    const response = await request.get('/todos/1');
+
+    //validate the response
+    expect(response.status()).toBe(200);
+
+    console.log("I am with the tag @donotlearn");
 
 });
